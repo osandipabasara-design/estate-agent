@@ -20,7 +20,7 @@ function SearchPage(){
 
     //Convert to Date object
     const convertToDate = (added) => {
-        return new DataPicker(`${added.month} ${added.day}, ${added.year}`);
+        return new DatePicker(`${added.month} ${added.day}, ${added.year}`);
     };
 
     const filteredProperties = properties.filter((property) => {
@@ -87,4 +87,4 @@ function SearchPage(){
     );
 }
 
-export default SerachPage;
+export default SearchPage;
