@@ -3,6 +3,7 @@ import Select from "react-select";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import properties from "../data/properties.json";
+import PropertyCard from "../components/PropertyCard";
 
 function SearchPage(){
     const [type, setType] = useState(null);
@@ -76,10 +77,11 @@ function SearchPage(){
             {filteredProperties.length === 0 && <p>No properties found.</p>}
 
             {filteredProperties.map((property) => (
-                <div kwy={property.id} style={{borderBottom: "1px solid #ccc", marginBottom: "10px"}}>
+                <PropertyCard key={property.id} style={{borderBottom: "1px solid #ccc", marginBottom: "10px"}}>
                     <p><strong>{property.type}</strong> - £{property.price}</p>
                     <p>{property.description}</p>
-                </div>
+                </PropertyCard>
+                
             ))}
 
 
