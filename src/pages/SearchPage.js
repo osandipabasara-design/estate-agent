@@ -4,7 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import properties from "../data/properties.json";
 
-function SerachPage(){
+function SearchPage(){
     const [type, setType] = useState(null);
     const [minPrice, setMinPrice] = useState("");
     const [maxPrice, setMaxPrice] = useState("");
@@ -25,7 +25,7 @@ function SerachPage(){
 
     const filteredProperties = properties.filter((property) => {
         return property.price > 300000;
-        
+
         //Type filter
         if (type && type.value !== "Any" && property.type !== type.value){
             return false;
