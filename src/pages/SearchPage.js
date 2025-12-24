@@ -1,13 +1,13 @@
 import {useState} from "react";
-import Select from "React-select";
+import Select from "react-select";
 import DataPicker from "react-datapicker";
 import "react-datepicker/dist/react-datepicker.css";
 import properties from "../data/properties.json";
 
 function SerachPage(){
     const [type, setType] = useState(null);
-    const [minPrice, setMinPrice] = setState("");
-    const [maxPrice, setMaxPrice] = setState("");
+    const [minPrice, setMinPrice] = useState("");
+    const [maxPrice, setMaxPrice] = useState("");
     const [bedrooms, setBedrooms] = useState("");
     const [dateAdded, setDateAdded] = useState("");
 
