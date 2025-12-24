@@ -1,6 +1,6 @@
 import {useState} from "react";
 import Select from "react-select";
-import DataPicker from "react-datapicker";
+import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import properties from "../data/properties.json";
 
@@ -10,6 +10,7 @@ function SerachPage(){
     const [maxPrice, setMaxPrice] = useState("");
     const [bedrooms, setBedrooms] = useState("");
     const [dateAdded, setDateAdded] = useState("");
+    const [propertyDate, setPropertydate] = useState("");
 
     const propertyType = [
         { value: "House", label : "House"},
@@ -41,7 +42,7 @@ function SerachPage(){
         //Date added filter
         if (dateAdded){
             const propertyDate = convertToDate(property.added);
-            if (propertydate < dateAdded)
+            if (propertyDate < dateAdded)
                 return false;
         }
 
