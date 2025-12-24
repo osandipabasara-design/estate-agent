@@ -24,6 +24,8 @@ function SerachPage(){
     };
 
     const filteredProperties = properties.filter((property) => {
+        return property.price > 300000;
+        
         //Type filter
         if (type && type.value !== "Any" && property.type !== type.value){
             return false;
