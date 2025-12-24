@@ -99,7 +99,7 @@
         },
         {
             "id":"prop7",
-            "type":"Townhouse",
+            "type":"House",
             "bedrooms":3,
             "price":675000,
             "tenure":"Freehold",
