@@ -1,36 +1,84 @@
+import {useState} from "react";
 import Select from "React-select";
 import DataPicker from "react-datapicker";
 import "react-datepicker/dist/react-datepicker.css";
+import properties from "../data/properties.json";
 
 function SerachPage(){
+    const [type, setType] = useState(null);
+    const [minPrice, setMinPrice] = setState("");
+    const [maxPrice, setMaxPrice] = setState("");
+    const [bedrooms, setBedrooms] = useState("");
+    const [dateAdded, setDateAdded] = useState("");
+
     const propertyType = [
         { value: "House", label : "House"},
         {value: "Flat", label: "Flat"},
-        {value: "Bungalow", label: "Bungalow"},
-        {value : "Apartment", label : "Apartment"}
+        {value: "Any", label: "Any"}
     ];
+
+    //Convert to Date object
+    const convertToDate = (added) => {
+        return new DataPicker(`${added.month} ${added.day}, ${added.year}`);
+    };
+
+    const filteredProperties = properties.filter((property) => {
+        //Type filter
+        if (type && type.value !== "Any" && property.type !== type.value){
+            return false;
+        }
+
+        //Price filter
+        if (minPrice && property.price < minPrice) 
+            return false;
+        if (maxPrice && property.price > maxPrice)
+            return false;
+
+        //Bedrooms filter
+        if (bedrooms && property.bedrooms < bedrooms)
+            return false;
+
+        //Date added filter
+        if (dateAdded){
+            const propertyDate = convertToDate(property.added);
+            if (propertydate < dateAdded)
+                return false;
+        }
+
+        return true;
+    });
+
 
     return(
         <div>
             <h2>Search Properties</h2>
 
             <label>Property Type</label>
-            <Select options={propertyTypes} />
+            <Select options={propertyType} onChange={setType} />
 
             <label>Minimum Price</label>
-            <input type="number" placeholder="Min Price" />
+            <input type="number" value="{minPrice}" onChnage={(e) => setMinPrice(e.target.value)} placeholder="Min Price" />
 
             <label>Maximum Price</label>
-            <input type="number" placeholder="Max Price" />
+            <input type="number" value = {maxPrice} onChange={(e) => setMaxPrice(e.target.value)} placeholder="Max Price" />
 
             <label>Bedrooms</label>
-            <input type="number" placeholder="Bedrooms" />
+            <input type="number" value={bedrooms} onChange={(e) => setBedrooms(e.target.value)} placeholder="Bedrooms" />
 
             <label>data Added After</label>
-            <DatePicker />
+            <DatePicker selected={dateAdded} onChange={setDateAdded} />
 
-            <label>Postcode Area</label>
-            <input type="text" placeholder="e.g. NW1" />
+            <h3>Search Results</h3>
+
+            {filteredProperties.length === 0 && <p>No properties found.</p>}
+
+            {filteredProperties.map((property) => (
+                <div kwy={property.id} style={{borderBottom: "1px solid #ccc", marginBottom: "10px"}}>
+                    <p><strong>{property.type}</strong> - £{property.price}</p>
+                    <p>{property.description}</p>
+                </div>
+            ))}
+
 
         </div>
     );
