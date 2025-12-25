@@ -13,7 +13,7 @@ test ("renders search page heading", () => {
             </BrowserRouter>
         </FavouritesProvider>
     );
-    
+
     const heading = screen.getByText(/search properties/i);
     expect(heading).toBeInTheDocument();
     expect(screen.getByText(/search/i)).toBeInTheDocument();
@@ -27,7 +27,6 @@ test("renders search inputs", () => {
             </BrowserRouter>
         </FavouritesProvider>
     );
-
 
     expect(screen.getByText(/minimum price/i)).toBeInTheDocument();
     expect(screen.getByText(/maximum price/i)).toBeInTheDocument();
