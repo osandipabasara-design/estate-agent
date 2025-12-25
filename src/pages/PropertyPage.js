@@ -6,6 +6,7 @@ import "react-tabs/style/react-tabs.css";
 function PropertyPage() {
   const { id } = useParams();
   const property = properties.find((p) => p.id === id);
+  const safeLocation = encodeURIComponent(property.location);
 
   if (!property) {
     return <p>Property not found</p>;
@@ -50,9 +51,7 @@ function PropertyPage() {
             width="100%"
             height="300"
             loading="lazy"
-            src={`https://www.google.com/maps?q=${encodeURIComponent(
-              property.location
-            )}&output=embed`}
+            src={`https://www.google.com/maps?q=${safeLocation}&output=embed`}
           ></iframe>
         </TabPanel>
       </Tabs>
