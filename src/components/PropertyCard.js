@@ -2,7 +2,7 @@ import {link} from "react-router-dom";
 
 function PropertyCard({property}){
     return(
-        <div style={{border: "1px solid #ddd", borderRadius: "8px", padding: "15px", marginBottom: "15px", display: "flex", gap: "15px"}}>
+        <div className="property-card">
             <img src={property.picture} alt={property.type} style={{width: "150px", height: "100px", objectFit: "cover"}}></img>
 
             <div>
@@ -26,6 +26,7 @@ function PropertyCard({property}){
                         <p><strong>Bedrooms:</strong>{property.bedrooms}</p>
                         <p><strong>Location:</strong>{property.location}</p>
                     </div>
+
                 </div>
             </Link>
 

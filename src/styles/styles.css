@@ -1,0 +1,42 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 10px;
+}
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+input, button {
+  margin-top: 5px;
+  padding: 8px;
+  width: 100%;
+  max-width: 300px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.property-card {
+  display: flex;
+  gap: 15px;
+}
+
+/* 📱 Mobile layout */
+@media (max-width: 768px) {
+  .property-card {
+    flex-direction: column;
+  }
+
+  img {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
