@@ -28,6 +28,6 @@ test("renders search inputs", () => {
     );
 
     expect(screen.getByText(/minimum price/i)).toBeInTheDocument();
-    expecct(screen.getByText(/maximum price/i)).toBeInTheDocument();
+    expect(screen.getByText(/maximum price/i)).toBeInTheDocument();
     expect(screen.getByText(/bedrooms/i)).toBeInTheDocument();
 });
