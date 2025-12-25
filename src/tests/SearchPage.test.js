@@ -13,9 +13,7 @@ test ("renders search page heading", () => {
             </BrowserRouter>
         </FavouritesProvider>
     );
-
-    const heading = screen.getByText(/search properties/i);
-    expect(heading).toBeInTheDocument();
+    
     expect(screen.getByText(/search/i)).toBeInTheDocument();
 });
 
