@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import properties from "../data/properties.json";
 import PropertyCard from "../components/PropertyCard";
+import FavouritesContext from "../context/FavouritesContext";
 
 function SearchPage(){
     const [type, setType] = useState(null);
@@ -71,6 +72,9 @@ function SearchPage(){
 
             <label>data Added After</label>
             <DatePicker selected={dateAdded} onChange={setDateAdded} />
+
+            <FavouritesContext></FavouritesContext>
+
 
             <h3>Search Results</h3>
 
